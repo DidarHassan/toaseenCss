@@ -1,0 +1,54 @@
+<style>
+  .gridCardwrppr{
+  padding: 50px 0px;
+  background-color: #d9c9e3;
+
+  .grid-container {
+    margin: 20px;
+  }
+  
+  .dashboard-card {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+  }
+  
+  .more-button {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+  }
+  
+  .dashboard-card-content {
+    text-align: center;
+  }
+  
+}
+
+</style>
+
+<div class="gridCardwrppr">
+  <div class="container">
+    <div class="grid-container">
+      <mat-grid-list cols="3" rowHeight="300px">
+        @for (card of cards | async; track card) {
+          <mat-grid-tile [colspan]="card.cols" [rowspan]="card.rows">
+            <mat-card class="dashboard-card">
+              <img  src="" alt="">
+              <mat-card-header>
+                <mat-card-title>
+                  {{card.title}}
+                </mat-card-title>
+              </mat-card-header>
+              <mat-card-content class="dashboard-card-content">
+                <div></div>
+              </mat-card-content>
+            </mat-card>
+          </mat-grid-tile>
+        }
+      </mat-grid-list>
+    </div>
+  </div>
+</div>

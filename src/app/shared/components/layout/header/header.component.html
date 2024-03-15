@@ -1,0 +1,133 @@
+<style>
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  .mat-toolbar{
+    background: transparent ;
+}
+
+.menu-btn{
+  display: none;
+}
+.top-toolbar{
+  display: none;
+    background-color: #cbc3e3 !important;
+    height: 40px;
+    margin-bottom: 20px;
+    position:fixed;
+    top: 0;
+}
+
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: transparent;
+    transition-duration: 0.5s;
+    height: 80px;
+    z-index: 10000;
+
+    mat-toolbar{
+        justify-content: space-between;
+        .mdc-list{
+            display: flex;
+        }
+    }
+}
+.shrink{
+    height: 65px;
+    background-color: #9663a8db;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+
+
+::ng-deep .mat-list-base .mat-list-item{
+    display: inline-block !important;
+    width: unset!important;
+}
+::ng-deep .mat-list-base .mat-list-item:focus{
+    background: #da4271;
+    color: #fff;
+    transition: 0.3s ease-in-out;
+}
+
+
+@media (max-width: 959px){
+    .toolbar{
+        display: block;
+        position: fixed;
+        left: 0;
+        transition: 0.3 ease-in-out;
+        top: 39px;
+        width: 270px;
+        height: 100% !important;
+        z-index: 100;
+        background: #ffffffeb;
+        .nav-list{
+            display: grid;
+            .nav-item{
+                display: block;
+                color: #0c0c0c;
+            }
+        }
+    }
+    .menuClass{
+        left: 0;
+        transform: translateX(-100%);
+        transition: 0.3s ease-in-out;
+    }
+    .top-toolbar{
+        display: block;
+        .menu-btn{
+            display: block !important;
+        }
+    }
+    .example-spacer {
+        flex: 1 1 1 auto !important;
+    }
+    
+}
+
+</style>
+
+<header (scroll)="onScroll()"  [ngClass]="{'shrink': isShrink}">
+  <mat-toolbar class="top-toolbar" >
+    <button
+        type="button" class="menu-btn" mat-icon-button (click)="openMenu()">
+        <mat-icon aria-label="Side nav toggle icon">list</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <div class="bg">
+    <div class="container">
+      <mat-toolbar class="toolbar navbar" [class.menuClass]="mobileMenu" attach>
+        <div class="logo">
+            <img routerLink="/home" class="logo-img" src="" alt="Logo">
+        </div>
+        <mat-nav-list class="nav-list">
+          <a mat-list-item class="nav-item" routerLink="/details">page</a>
+          <a mat-list-item class="nav-item">page</a>
+          <a mat-list-item class="nav-item">page</a>
+          <a mat-list-item class="nav-item">page</a>
+        </mat-nav-list>
+  
+        <div class="icon-btn-group">
+          <button routerLink="/viewAllProduct" mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+            <mat-icon>search</mat-icon>
+          </button>
+          <button mat-icon-button color="accent" aria-label="Example icon button with a heart icon">
+            <mat-icon>favorite</mat-icon>
+          </button>
+          <button mat-icon-button (click)="openDialog()" color="primary" aria-label="Example icon button with a heart icon">
+            <mat-icon>add_shopping_cart</mat-icon>
+          </button>
+        </div>
+      </mat-toolbar>
+    </div>
+  </div>
+  
+</header>
+  

@@ -1,0 +1,35 @@
+.detailsWrppr {
+    .row {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        height: calc(100vh - 164px);
+        .productImg{
+            width: 48%;
+            height: -webkit-fill-available;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+::ng-deep .mat-mdc-card {
+    background-color: unset !important;
+    box-shadow: unset !important;
+}
