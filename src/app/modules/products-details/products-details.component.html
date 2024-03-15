@@ -1,5 +1,28 @@
-@if (productData) {
 
+<style>
+    .detailsWrppr {
+    .row {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        height: calc(100vh - 164px);
+        .productImg{
+            width: 48%;
+            height: -webkit-fill-available;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+}
+
+::ng-deep .mat-mdc-card {
+    background-color: unset !important;
+    box-shadow: unset !important;
+}
+</style>
+@if (productData) {
 <div class="detailsWrppr" style="padding: 50px 0px;">
     <div class="row">
         <div class="container">
