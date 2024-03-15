@@ -4,9 +4,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## responsive
   /** Based on the screen size, switch from standard to one column per row */
+  
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(({ matches }) => {
       if (matches) {
+      
         return [
           { title: 'Card 1', cols: 4, rows: 1 }, //mobile view
         ];
