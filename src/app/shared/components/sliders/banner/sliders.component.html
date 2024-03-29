@@ -1,0 +1,163 @@
+<style>
+	.topSliderWrppr {
+		background-image: linear-gradient(165deg, #390049, #9663a8, #d9c9e3, #d9c9e3);
+	}
+
+	.topSliderWrppr .sliders {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+	}
+
+	.topSliderWrppr .sliderContent1,
+	.sliderContent2 {
+		width: 50%;
+	}
+
+	.topSliderWrppr .card-img .img-slider {
+		background-color: transparent;
+		box-shadow: none;
+	}
+
+	.topSliderWrppr .left-card {
+		display: block;
+		width: 50%;
+		height: 501px;
+		margin-left: auto;
+		margin-right: auto;
+		border-radius: 150px;
+		padding: 32px;
+		background-color: #f8ebff;
+		transition-duration: 0.3s;
+	}
+
+	.topSliderWrppr .left-card .card-content {
+		padding: 15px;
+		margin-top: 13px;
+	}
+
+	.topSliderWrppr .left-card .card-content .mat-mdc-card-header {
+		margin-bottom: 15px;
+	}
+
+	.topSliderWrppr .left-card .card-content .mat-mdc-card-header .mat-mdc-card-title {
+		letter-spacing: 2px;
+		line-height: normal;
+		font-size: 26px !important;
+	}
+
+	.topSliderWrppr .left-card .card-content .mat-mdc-card-header .mat-mdc-card-subtitle {
+		color: goldenrod;
+		font-size: 16px;
+	}
+
+	.topSliderWrppr .left-card:hover {
+		transition-duration: 0.3s;
+		box-shadow: 1px 2px 20px 0px rgba(0, 0, 0, 0.2), 1px 1px 15px 12px rgba(0, 0, 0, 0.14), 1px 1px 10px 0px rgba(0, 0, 0, 0.12);
+	}
+
+	::ng-deep .mdc-card__actions {
+		margin-top: 15px !important;
+	}
+
+	::ng-deep .mdc-card__actions .mat-mdc-raised-button:not(:disabled) {
+		background-color: #9663a8;
+		color: #fff;
+		border-radius: 20px;
+		padding: 23px;
+		font-size: 18px;
+	}
+
+	.card-img {
+		width: 100%;
+	}
+
+	.grid-container {
+		margin: auto;
+	}
+
+	.dashboard-card {
+		position: absolute;
+		top: 15px;
+		left: 15px;
+		right: 15px;
+		bottom: 15px;
+		background-color: transparent;
+		box-shadow: none;
+	}
+
+	.more-button {
+		position: absolute;
+		top: 5px;
+		right: 10px;
+	}
+
+	.dashboard-card-content {
+		text-align: center;
+	}
+
+	@media (min-width: 375px) and (max-width: 667px) {
+		.topSliderWrppr .sliders {
+			display: flex;
+			flex-direction: column;
+			margin-top: 50px;
+			margin-bottom: 20px;
+		}
+
+		.topSliderWrppr .sliderContent1,
+		.sliderContent2 {
+			width: 100%;
+		}
+
+		.topSliderWrppr .left-card {
+			width: 65%;
+			height: 405px;
+		}
+
+		.topSliderWrppr .left-card .card-content .mat-mdc-card-header .mat-mdc-card-title {
+			font-size: 24px !important;
+		}
+	}
+</style>
+
+<div class="topSliderWrppr">
+	<div class="wrppr">
+		<!-- slider -->
+		<owl-carousel-o [options]="customOptions">
+			@for (slider of bannerSliders; track slider.id) {
+			<ng-template carouselSlide>
+				<!-- Grid List -->
+				<div class="sliders">
+					<div class="sliderContent1">
+						<div class="content">
+							<mat-card class="left-card">
+								<div class="card-content">
+									<mat-card-header>
+										<mat-card-subtitle class="title-font">{{slider.subtitle}}</mat-card-subtitle>
+										<mat-card-title class="title-font">{{slider.title}}</mat-card-title>
+									</mat-card-header>
+									<mat-card-content>
+										<span>{{slider.description}}</span>
+									</mat-card-content>
+									<mat-card-actions>
+										<button mat-button mat-raised-button class="custom-button title-font ">shop
+											now</button>
+									</mat-card-actions>
+
+								</div>
+							</mat-card>
+						</div>
+					</div>
+					<div class="sliderContent2">
+						<div class="card-img">
+							<mat-card class="img-slider">
+								<img matCardImage [src]="slider.imgUrl">
+							</mat-card>
+						</div>
+					</div>
+				</div>
+			</ng-template>
+			}
+		</owl-carousel-o>
+	</div>
+</div>

@@ -1,0 +1,85 @@
+<style>
+    .banner {
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        justify-content: space-evenly;
+        width: 100%;
+        height: 400px;
+        background-color: #d9c9e3;
+        align-items: center;
+    }
+
+    .banner .offer {
+        width: 50%;
+        height: auto;
+    }
+
+    .banner .offer h1 {
+        font-size: 33px;
+    }
+
+    .banner .offer h1 strong {
+        color: red;
+    }
+
+    .banner .offer .mat-mdc-raised-button:not(:disabled) {
+        background-color: #9663a8;
+        color: #fff;
+        border-radius: 20px;
+        padding: 23px;
+        font-size: 18px;
+    }
+
+    .banner .offerbanner {
+        width: 20%;
+        height: -webkit-fill-available;
+    }
+
+    .banner .offerbanner .offerImg {
+        width: 100%;
+        height: -webkit-fill-available;
+    }
+
+
+    @media (min-width: 375px) and (max-width: 667px) {
+        .banner {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: auto;
+        }
+
+        .banner .offerbanner {
+            width: 100%;
+            height: -webkit-fill-available;
+        }
+
+        .banner .offer {
+            padding: 20px;
+            width: unset;
+            text-align: center;
+        }
+    }
+</style>
+
+<div class="content">
+    <div class="banner">
+        <div class="offer">
+            <h1 class="title-font">Exclusive Fragrance Offer <Strong>50%</Strong> Off</h1>
+            <p class="decFont">Indulge your senses with our exclusive fragrance offer! Elevate your personal style and
+                leave a lasting impression with our carefully curated selection of captivating scents. From floral and
+                fruity to woody and oriental, discover the perfect fragrance to match your mood and personality. Immerse
+                yourself in a world of luxury and sophistication as you explore our collection of renowned perfumes and
+                colognes. Don't miss this opportunity to find your signature scent and make every moment unforgettable.
+                Unlock the essence of elegance with our fragrance offer today!</p>
+
+            <button class="title-font" mat-button mat-raised-button>get now</button>
+        </div>
+        <div class="offerbanner">
+            <img class="offerImg"
+                src="https://res.cloudinary.com/drippyi9f/image/upload/v1709122794/pngegg_3_erzefg.png">
+        </div>
+
+    </div>
+</div>

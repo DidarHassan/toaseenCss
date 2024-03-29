@@ -1,0 +1,87 @@
+<style>
+  .categorisWrppr {
+	 padding-top: 50px;
+	 padding-bottom: 50px;
+	 background-image: linear-gradient(330deg, #390049, #9663a8, #d9c9e3, #d9c9e3);
+}
+ .categorisWrppr .tabCat .categoryImg {
+	 width: 65%;
+	 margin-left: auto;
+	 margin-right: auto;
+}
+ .categorisWrppr .grid-container {
+	 margin: 20px;
+}
+ .categorisWrppr .dashboard-card {
+	 position: absolute;
+	 top: 15px;
+	 left: 15px;
+	 right: 15px;
+	 bottom: 15px;
+	 background-color: #f8ebff;
+}
+ .categorisWrppr .dashboard-card .categorisImg {
+	 display: flex;
+	 flex-wrap: nowrap;
+	 flex-direction: column;
+	 align-content: center;
+	 justify-content: space-between;
+	 align-items: center;
+	 height: 98%;
+}
+ .categorisWrppr .dashboard-card .categorisImg .img {
+	 display: block;
+	 width: 50%;
+	 text-align: center;
+	 margin-left: auto;
+	 margin-right: auto;
+}
+ .categorisWrppr .dashboard-card .mat-mdc-card-header {
+	 margin-left: auto;
+	 margin-right: auto;
+}
+ .more-button {
+	 position: absolute;
+	 top: 5px;
+	 right: 10px;
+}
+ .dashboard-card-content {
+	 text-align: center;
+}
+ 
+</style>
+
+<div class="categorisWrppr">
+  <div class="container ">
+    <div class="categoris">
+      <div class="grid-container">
+        <owl-carousel-o [options]="category">
+          @for (categoris of (getCategory ); track categoris.id) {
+          <ng-template carouselSlide>
+            <mat-grid-list cols="2" rowHeight="350px">
+              @for (card of cards | async; track card) {
+              <mat-grid-tile [colspan]="card.cols" [rowspan]="card.rows">
+
+                  
+                    <mat-card class="dashboard-card">
+                      <div class="categorisImg">
+                          <mat-card-header>
+                              <mat-card-title>
+                                  {{categoris.name}}
+                              </mat-card-title>
+                          </mat-card-header>
+                          <img class="img" [src]="categoris.imgUrl" alt="">
+                      </div>
+                  </mat-card>
+                
+                
+              </mat-grid-tile>
+              }
+            </mat-grid-list>
+          </ng-template>
+          }
+        </owl-carousel-o>
+      </div>
+    </div>
+  </div>
+</div>

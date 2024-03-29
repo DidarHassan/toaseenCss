@@ -1,0 +1,40 @@
+@if (productData) {
+    <mat-grid-list cols="2" rowHeight="400px">
+    @for (card of cards | async; track card) {
+    <mat-grid-tile [colspan]="card.cols" [rowspan]="card.rows">
+        <mat-card class="dashboard-card">
+            <img mat-card-xl-image [src]="productData.imgUrl" class="productImg">
+        </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="card.cols" [rowspan]="card.rows">
+        <mat-card class="dashboard-card">
+            <mat-card-header>
+                <mat-card-subtitle>{{productData.categoryName}}</mat-card-subtitle>
+                <mat-card-title>{{productData.name}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="productDes">
+                    <span>{{productData.description}}</span>
+                </div>
+            </mat-card-content>
+            <div class="price">
+                
+            </div>
+            <mat-card-actions align="start">
+                
+                <mat-button-toggle-group #group="matButtonToggleGroup">
+                    <mat-button-toggle mat-icon-button >
+                        <mat-icon color="warn">remove</mat-icon>
+                    </mat-button-toggle>
+                   <span style="padding: 15px;">1</span>
+                    <mat-button-toggle mat-icon-button color="primary">
+                        <mat-icon>add</mat-icon>
+                    </mat-button-toggle>
+                </mat-button-toggle-group>
+            </mat-card-actions>
+        </mat-card>
+    </mat-grid-tile>
+
+    }
+</mat-grid-list>
+}

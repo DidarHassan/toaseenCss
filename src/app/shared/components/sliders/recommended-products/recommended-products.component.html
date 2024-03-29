@@ -1,0 +1,81 @@
+<style>
+  .reProductWrppr {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    position: relative;
+
+    .bImg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      opacity: 0.5;
+    }
+
+  }
+
+  .grid-container {
+    margin: 20px;
+  }
+
+  .dashboard-card {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    display: block;
+    text-align: center;
+
+    .reProImg {
+      width: 60%;
+    }
+  }
+
+  .dashboard-card-content {
+    text-align: center;
+  }
+</style>
+<div class="reProductWrppr">
+  <div class="container ">
+    <div class="rePro">
+      <h1>Recommended Products</h1>
+      <div class="grid-container">
+        <owl-carousel-o [options]="customOptions">
+          @for (data of category; track data.id) {
+          <ng-template carouselSlide>
+            <mat-grid-list cols="2" rowHeight="400px">
+              @for (card of cards | async; track card) {
+              <mat-grid-tile [colspan]="card.cols" [rowspan]="card.rows">
+                <mat-card class="dashboard-card">
+                  <mat-card-header>
+                    <mat-card-title>Fresh and Floral</mat-card-title>
+                  </mat-card-header>
+                  <img class="categoryImg" src="../../../../../assets/8.png" alt="">
+                </mat-card>
+              </mat-grid-tile>
+              }
+            </mat-grid-list>
+          </ng-template>
+          }
+        </owl-carousel-o>
+      </div>
+    </div>
+
+    <div class="grid-container ">
+      <mat-grid-list cols="2" rowHeight="450px">
+        @for (rePro of reProGrid | async; track rePro) {
+        <mat-grid-tile [colspan]="rePro.cols" [rowspan]="rePro.rows">
+          <mat-card class="dashboard-card">
+            <mat-card-header>
+              <mat-card-title>Gourmand Fragrances</mat-card-title>
+            </mat-card-header>
+            <img class="reProImg" src="../../../../../assets/8.png" alt="">
+          </mat-card>
+        </mat-grid-tile>
+        }
+      </mat-grid-list>
+    </div>
+  </div>
+</div>
