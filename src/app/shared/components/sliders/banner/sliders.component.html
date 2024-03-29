@@ -96,7 +96,7 @@
 		text-align: center;
 	}
 
-	@media (min-width: 375px) and (max-width: 667px) {
+	@media (min-width: 280px) and (max-width: 820px) {
 		.topSliderWrppr .sliders {
 			display: flex;
 			flex-direction: column;
@@ -111,11 +111,15 @@
 
 		.topSliderWrppr .left-card {
 			width: 65%;
-			height: 405px;
+			height: auto;
+			text-align: center;
 		}
 
 		.topSliderWrppr .left-card .card-content .mat-mdc-card-header .mat-mdc-card-title {
 			font-size: 24px !important;
+		}
+		.mdc-card__actions{
+			flex-direction: column;
 		}
 	}
 </style>
